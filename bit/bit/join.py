@@ -3,22 +3,22 @@ import json
 def main():
 
     ## Shit!
-    financial = open('html/financial.txt').read()
-    valuation = open('html/valuation.txt').read()
+    financial = open('outputs/financial.txt').read()
+    valuation = open('outputs/valuation.txt').read()
 
-    _output1 = financial.split('<<<>>>')
-    _output2 = valuation.split('<<<>>>')
+    financialInput = financial.split('<<<>>>')
+    valuationInput = valuation.split('<<<>>>')
 
     # Refactoring...
     financial = []
-    for tricker in _output1:
+    for tricker in financialInput:
         try:
             financial.append(json.loads(tricker))
         except:
             pass
 
     valuation = []
-    for tricker in _output2:
+    for tricker in valuationInput:
         try:
             valuation.append(json.loads(tricker))
         except:
