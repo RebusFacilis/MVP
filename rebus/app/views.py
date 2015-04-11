@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def dashboard_user(request):
+	return render(request, 'userData.html')
