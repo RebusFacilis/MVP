@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rebus Facilis</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">	
+	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+</head>
+<body>
+	<nav class="top-bar" data-topbar role='navigation'>
+		<ul class="title-area">
+			<li class="name">
+				<h1>Rebus Facilis</h1>
+			</li>
+		</ul>
+	</nav>
+	{% block content %}
+	{% endblock %}
+</body>
+</html>
