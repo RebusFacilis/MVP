@@ -10,11 +10,10 @@
   margin: 0 auto;
   margin-top: 3em;'>
           <ul class="y-axis">
-              <li><span> 24 meses </span></li>
-              <li><span> 20 meses </span></li>
-              <li><span> 16 meses </span></li>
-              <li><span> 12 meses </span></li>
-              <li><span> 4 meses </span></li>
+            <li><span> 24 meses </span></li>
+            <li><span>{{sin_inversion}} meses</span></li>
+            <li><span>{{time_cetes}} meses</span></li>
+            <li><span>{{time_rebus}} meses</span></li>            
 	          <li><span> 0 meses </span></li>
 
           </ul>
@@ -33,5 +32,8 @@
               <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top" style="height: {{time_rebus}}%;"></div>
           </div>
      </div>
+
+    <a class='animated infinite pulse' href="{% url 'cards' %}">Invertir</a>
+
 
 {% endblock %}
