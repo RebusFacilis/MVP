@@ -1,4 +1,9 @@
 import json
+from sort import sort_by_indicator, rank_to_dict, mix_ranks
+import pprint, operator
+
+def discart_pe(key):
+    return None if key <= 5 else key
 
 def main():
 
@@ -40,7 +45,18 @@ def main():
         if k in valuationMix:
             mix[k].update(valuationMix[k])
 
-    import pprint
-    pprint.pprint(mix)
+    mix_pe = sort_by_indicator(mix, key='P/E', filters=[discart_pe])
+    mix_roi = sort_by_indicator(mix, key='ROI', reverse=True)
+
+    rank_pe = rank_to_dict(mix_pe)
+    rank_roi = rank_to_dict(mix_roi)
+
+    mixed_rank = mix_ranks(rank_pe, rank_roi)
+    mixed_rank_ordered = sorted(mixed_rank.items(), key=operator.itemgetter(1))
+
+    pprint.pprint(mixed_rank_ordered[:30])
+
+    # pprint.pprint(mixed_rank)
+    # print "<<<<<P/E>>>>>"
 
 main()
