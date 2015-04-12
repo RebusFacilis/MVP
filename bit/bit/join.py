@@ -1,6 +1,9 @@
 import json
 from sort import sort_by_indicator, rank_to_dict, mix_ranks, to_mix
 import pprint, operator
+import os
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 def discart_pe(key):
     return None if key <= 5 else key
@@ -8,8 +11,10 @@ def discart_pe(key):
 def main():
 
     ## Shit!
-    financial = open('outputs/financial.txt').read()
-    valuation = open('outputs/valuation.txt').read()
+    financialPath = os.path.join(BASE, 'outputs/financial.txt')
+    valuationPath = os.path.join(BASE, 'outputs/valuation.txt')
+    financial = open(financialPath).read()
+    valuation = open(valuationPath).read()
 
     financialInput = financial.split('<<<>>>')
     valuationInput = valuation.split('<<<>>>')
@@ -17,17 +22,19 @@ def main():
     # Refactoring...
     financial = []
     for ticker in financialInput:
+        if not ticker:  continue
         try:
             financial.append(json.loads(ticker))
-        except:
-            pass
+        except Exception as e:
+            raise e
 
     valuation = []
     for ticker in valuationInput:
+        if not ticker:  continue
         try:
             valuation.append(json.loads(ticker))
-        except:
-            pass
+        except Exception as e:
+            raise e
 
     ## To dict
     mix = {}
@@ -57,7 +64,12 @@ def main():
 
     mixed = to_mix(mix, mixed_rank_ordered)
     price_mix = sort_by_indicator(mixed, 'Price')
-    pprint.pprint(price_mix)
+
+    path = os.path.join(BASE, 'outputs/final.txt')
+    f = open(path, 'w')
+    f.write(json.dumps(price_mix))
+    f.close()
+    # pprint.pprint(price_mix)
 
 
 main()
