@@ -3,18 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Rebus Facilis</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">	
-	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+	
+	{% include 'material/includes/material_css.html' %}
+	{% include 'material/includes/material_js.html' %}
+	{% load material_form %}
 </head>
 <body>
-	<nav class="top-bar" data-topbar role='navigation'>
-		<ul class="title-area">
-			<li class="name">
-				<h1 style="color:white;">Rebus Facilis</h1>
-			</li>
-		</ul>
-	</nav>
+
 	{% block content %}
 	{% endblock %}
 </body>
