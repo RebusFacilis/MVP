@@ -17,6 +17,6 @@ class Invenstment(models.Model):
     monthly_payment = models.FloatField()
     payment_mode = models.CharField(max_length=30, choices = PAYMENT_MODE)
     objective = models.FloatField()
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
     user = models.ForeignKey(User)
