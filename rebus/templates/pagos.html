@@ -7,7 +7,7 @@
 <head>
 
   <meta charset="UTF-8">
-
+  <meta name="csrftoken" content="{{ csrf_token }}">
   <title>Rebus Facilitis</title>
   <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700'>
@@ -18,7 +18,7 @@
 
 <body>
 	<div class='form animated flipInX'>
-	<form id="submit_pagos">
+	<form  id="submit_pagos">
 
 		<div class="row">
 			<div class="large-9 columns">
@@ -79,8 +79,8 @@
 	</form>
 	<div>
 	<script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
- <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-
+ 	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+	<script src="/static/js/pagos.js"></script>
 
 </body>
 

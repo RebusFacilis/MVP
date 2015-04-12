@@ -93,16 +93,6 @@ def cardform(request):
 
 def token_credit_card(request):
     token = request.POST['token_id']
-    try:
-      customer = conekta.Customer.create({
-        "name": request.POST['name'],
-        "email": "lews.therin@gmail.com",
-        "phone": "55-5555-5555",
-        "cards": request.POST['token_id'],
-    # request.form["conektaTokenId"], request.params["conektaTokenId"], "tok_a4Ff0dD2xYZZq82d9"
-      })
-    except conekta.ConektaError as e:
-        print e.message 
-    # el cliente no pudo ser creado
+
     CreditCard.objects.create(token=token, user=request.user)
-    return redirect(reverse('cards'))
+    return redirect(reverse('dashboard-user'))
