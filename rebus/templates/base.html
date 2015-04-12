@@ -6,8 +6,16 @@
 		<meta charset="utf-8" />
 		<meta name='csrftoken' content='{{ csrf_token }}'>
 		<title>Rebus Facilis</title>
-		<link rel="stylesheet" href="{% static 'css/normalize.css' %}">	
-		<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+     	<!-- FontAwesome Styles-->
+    	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+     	<!-- Morris Chart Styles-->
+    	<link href="{% static 'js/morris/morris-0.4.3.min.css' %}" rel="stylesheet" />
+        <!-- Custom Styles-->
+	    <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet" />
+     	<!-- Google Fonts-->
+   		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
 	<body>
 		<nav class="top-bar" data-topbar role="navigation">
@@ -25,6 +33,16 @@
 	<script src="{% static 'js/pagos.js' %}"></script>
 	<script src="{% static 'js/foundation.min.js' %}"></script>	
 	<script src="{% static 'js/Chart.js' %}"></script>
+	<script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Metis Menu Js -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <!-- Morris Chart Js -->
+    <script src="{% static 'js/morris/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'js/morris/morris.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'js/custom-scripts.js' %}"></script>
 		
 	</body>
 </html>
