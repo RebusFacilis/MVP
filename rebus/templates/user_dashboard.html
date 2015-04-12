@@ -2,6 +2,10 @@
 {% block content %}
 
 {% load staticfiles %}
+ <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700'>
+
+
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 		<link rel="stylesheet" href="{% static 'css/a.css' %}">
 
@@ -20,20 +24,30 @@
 
            <div class="bar ">
               <div class="title">S/I</div>
-              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: {{sin_inversion}}%;"></div>
+              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: 80%;"></div>
           </div>
     
           <div class="bar ">
               <div class="title">CETES</div>
-              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: {{time_cetes}}%;"></div>
+              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: 60%;"></div>
           </div>
           <div class="bar">
               <div class="title">REBUS</div>
-              <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top" style="height: {{time_rebus}}%;"></div>
+              <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top" style="height: 40%;"></div>
           </div>
      </div>
+     <div style='margin-top: 65px;
+  margin-left: 10em;
+}'>
+     <a href="{% url 'cards' %}" style='  background-color: #2ecc71;
+     color: white;
+  padding: 9px;
+  border-radius: 7px;
+  width: 42px;'>Invertir</a>
+</div>
 
-    <a class='animated infinite pulse' href="{% url 'cards' %}">Invertir</a>
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
 
 
 {% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/zabuto_calendar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/js/gritter/css/jquery.gritter.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/lineicons/style.css' %}">    
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style-responsive.css' %}" rel="stylesheet">
+
+    <script src="{% static 'assets/js/chart-master/Chart.js' %}"></script>
+	<section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="col-lg-9 main-chart">
+                  
+                  	<div class="row mtbox" style='margin-right: 17em;
+'>
+                  		<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                  			<div class="box1">
+					  			<span class="li_heart"></span>
+					  			<h3>$ 4000.00 MXN</h3>
+                  			</div>
+					  			<p>Este mes tu cuenta es de 4000 a favor</p>
+                  		</div>
+                  		<div class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<span class="li_cloud"></span>
+					  			<h3>$ 56,000.00 MXN</h3>
+                  			</div>
+					  			<p>Nos resta esta cantidad para nuestra meta.</p>
+                  		</div>
+                  		<div class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<span class="li_stack"></span>
+					  			<h3>8 meses</h3>
+                  			</div>
+					  			<p>Tiempo restante para lograr el objetivo</p>
+                  		</div>
+                  	
+                  	</div><!-- /row mt -->
+                  </section>
+              </section>
+
+{% endblock %}

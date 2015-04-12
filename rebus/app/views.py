@@ -84,6 +84,7 @@ class UserInvestmentConfirmationView(View):
         return redirect(reverse('dashboard-user'))
 
 
+
 def dashboard_user(request):
     return render(request, 'chart.html')
 
