@@ -1,5 +1,5 @@
 import json
-from sort import sort_by_indicator, rank_to_dict, mix_ranks
+from sort import sort_by_indicator, rank_to_dict, mix_ranks, to_mix
 import pprint, operator
 
 def discart_pe(key):
@@ -53,10 +53,11 @@ def main():
 
     mixed_rank = mix_ranks(rank_pe, rank_roi)
     mixed_rank_ordered = sorted(mixed_rank.items(), key=operator.itemgetter(1))
+    mixed_rank_ordered = mixed_rank_ordered[:30]
 
-    pprint.pprint(mixed_rank_ordered[:30])
+    mixed = to_mix(mix, mixed_rank_ordered)
+    price_mix = sort_by_indicator(mixed, 'Price')
+    pprint.pprint(price_mix)
 
-    # pprint.pprint(mixed_rank)
-    # print "<<<<<P/E>>>>>"
 
 main()

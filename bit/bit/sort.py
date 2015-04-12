@@ -12,6 +12,14 @@ def format_key(item):
 
 	return key
 
+def to_mix(master_mix, inputList):
+	mix = {}
+	for item in inputList:
+		ticker = item[0]
+		mix[ticker] = master_mix[ticker]
+
+	return mix
+
 def mix_ranks(rank_one, rank_two):
 	mixed_rank = {}
 	for k, v in rank_one.items():
