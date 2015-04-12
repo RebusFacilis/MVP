@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import View
+from app import invesments
+from app.models import Invenstment
 from app import forms as f
 
 class Login(View):
@@ -34,11 +36,19 @@ class UserView(View):
 
     def post(self,request):
         form = f.InvestmentInfoForm(request.POST)
-        if form.is_valid():
-            # Procesar datos del usuario para analisis
-            return redirect('dashboard-user')
-        else:
-            return render(request, 'index.html', {'form': form})
+        # if form.is_valid():
+        #     form.save()
+        user = Invenstment.objects.get(user=request.user)
+        objective = user.objective
+        monthly_pay = user.monthly_payment
+        payment_mode = user.payment_mode
+
+        time = invenstments.get_time(objective,monthly_payment,payment_mode)
+        
+        if time is None:
+            return redirect(reverse('user'))
+
+        return render(request, 'dashboard_user.html', {'time':time})
     
 
 def dashboard_user(request):
