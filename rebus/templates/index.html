@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Rebus Facilitis</title>
+
+  <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700'>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+  <div class='form animated flipInX'>
+    <img src="{% static 'img/logo-01.png' %}" alt="logorebus" />
+  <form role='form' method='POST'>
+    {% csrf_token %}
+    <h3>¿Cuál es tu meta?</h3>
+    {{ form.monthly_payment }}
+    <h3>¿Cuánto quieres invertir al mes?</h3>
+    {{ form.objective }}
+    <h3> ¿En cuánto tiempo? </h3>
+    {{ form.payment_mode | attr:"style: color:#2ecc71;"  }}
+    <input type="submit" class='animated infinite pulse' value='Calcular' style="color:#2ecc71; ">
+
+  </form>
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+
+</html>

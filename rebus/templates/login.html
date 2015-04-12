@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Logi de Rebus Facilis</title>
+  {% load staticfiles %}
+
+
+  <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700'>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+  <div class='form animated flipInX'>
+     <img src=" {% static 'img/logo-01.png' %}" alt="logorebus" />
+  <h2>Login To Your Account</h2>
+  <form role='form' method='POST'>
+    {% csrf_token %}
+    
+    {% for field in form %}
+ 
+            <div class="fieldWrapper">
+ 
+                {{ field.errors }}
+ 
+                {{ field.label_tag }} {{ field }}
+ 
+            </div>
+ 
+        {%  endfor %}
+ 
+    <input type="submit" class='animated infinite pulse' value='Login'>
+  </form>
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
