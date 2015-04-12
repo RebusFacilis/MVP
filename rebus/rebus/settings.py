@@ -37,8 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'material',
-    'material.admin',
     'widget_tweaks',
     'app',
 )
@@ -56,11 +54,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'rebus.urls'
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> bf1559af963a083b3b4d623abc5ed6c4a9bd49eb
 WSGI_APPLICATION = 'rebus.wsgi.application'
 
 # Database
