@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import View
+from app.investments import InvestmentLogic
+from app.models import Investment
 from app import forms as f
 
 class Login(View):
@@ -22,23 +24,33 @@ class Login(View):
             return redirect(reverse('login'))
 
     def dispatch(self, request, *args, **kwargs):
-    	if request.user.is_authenticated():
-    		return redirect(reverse('user'))
-    	super(Login, self).dispatch(request, *args, **kwargs)
+        if request.user.is_authenticated():
+            return redirect(reverse('user'))
+        super(Login, self).dispatch(request, *args, **kwargs)
 
-class UserView(View):
+class UserInvestmentView(View):
     def get(self, request):
         form = f.InvestmentInfoForm()
-        # print form
         return render(request, 'index.html', {'form': form})
 
-    def post(self,request):
+    def post(self, request):
         form = f.InvestmentInfoForm(request.POST)
-        if form.is_valid():
-            # Procesar datos del usuario para analisis
-            return redirect('dashboard-user')
-        else:
+        if not form.is_valid():
             return render(request, 'index.html', {'form': form})
+
+        meta = form.cleaned_data['meta']
+        inversion = form.cleaned_data['inversion']
+        tiempo = form.cleaned_data['tiempo']
+        time_cetes, time_rebus = InvestmentLogic.get_time(meta, inversion, tiempo)
+
+        return render(request, 'user_dashboard.html', {
+            'meta': meta,
+            'inversion': inversion,
+            'tiempo': tiempo,
+            'time_cetes': time_cetes,
+            'time_rebus': time_rebus,
+            'portfolio': []
+        })
     
 
 def dashboard_user(request):
@@ -47,8 +59,8 @@ def dashboard_user(request):
 
 
 def token_credit_card(request):
-	print 'llego'
-	token = request.POST['token_id']
-	print token
-	return render(request, 'user_dashboard.html')
+    print 'llego'
+    token = request.POST['token_id']
+    print token
+    return render(request, 'user_dashboard.html')
 

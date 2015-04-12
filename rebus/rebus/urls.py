@@ -9,7 +9,7 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', app_views.Login.as_view(), name='login'),
-    url(r'^investment/$', app_views.UserView.as_view(), name='user'),
+    url(r'^investment/$', app_views.UserInvestmentView.as_view(), name='user'),
     url(r'^dashboard/$', app_views.dashboard_user, name='dashboard-user'),
     url(r'^token/$', app_views.token_credit_card, name="token"),
 ]
