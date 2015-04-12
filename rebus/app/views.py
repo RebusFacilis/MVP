@@ -43,7 +43,7 @@ class UserView(View):
 
 def dashboard_user(request):
 
-    return render(request, 'pagos.html')
+    return render(request, 'chart.html')
 
 
 def token_credit_card(request):

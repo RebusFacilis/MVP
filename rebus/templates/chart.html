@@ -1,0 +1,84 @@
+﻿{% load staticfiles %}
+    <head>
+                <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+        <!-- Morris Chart Styles-->
+        <link href="{% static 'js/morris/morris-0.4.3.min.css' %}" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="{% static 'css/custom-styles.css' %}" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                  
+    <div id="wrapper">
+                </button>
+                <a class="navbar-brand"><img src="{% static 'img/logorebus2.png' %}" alt="logorebus" /></a>
+            </div>
+
+               
+        </nav>
+
+
+ 
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <button type="button"> Invertir</button>
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Tablas de ranking <small>Compara en que te conviene invertir</small>
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+             
+                <div class="row"> 
+                    
+                      
+                               <div class="col-md-6 col-sm-12 col-xs-12">                     
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Ticker
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                    </div>            
+                </div>
+             
+               
+                      
+                
+           </div>
+                 <!-- /. ROW  -->
+				 <footer><p></p></footer>
+				</div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/pagos.js' %}"></script>
+    <script src="{% static 'js/foundation.min.js' %}"></script> 
+    <script src="{% static 'js/Chart.js' %}"></script>
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <!-- Bootstrap Js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Metis Menu Js -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <!-- Morris Chart Js -->
+    <script src="{% static 'js/morris/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'js/morris/morris.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'js/custom-scripts.js' %}"></script>
+</body>
