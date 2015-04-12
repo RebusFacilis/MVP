@@ -16,16 +16,16 @@ def main():
 
     # Refactoring...
     financial = []
-    for tricker in financialInput:
+    for ticker in financialInput:
         try:
-            financial.append(json.loads(tricker))
+            financial.append(json.loads(ticker))
         except:
             pass
 
     valuation = []
-    for tricker in valuationInput:
+    for ticker in valuationInput:
         try:
-            valuation.append(json.loads(tricker))
+            valuation.append(json.loads(ticker))
         except:
             pass
 
