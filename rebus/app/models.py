@@ -6,16 +6,16 @@ PAYMENT_MODE = (
     ('12','12 meses'),
     ('18','18 meses'),
     ('24','24 meses')
-    )
+)
 
-class creditCard(models.Model):
+class CreditCard(models.Model):
     token = models.CharField(max_length=200)
     user = models.ForeignKey(User)
 
 
 class Invenstment(models.Model):
     monthly_payment = models.FloatField()
-    payment_mode = models.CharField(max_length=30, choices = PAYMENT_MODE)
+    payment_mode = models.CharField(max_length=30, choices=PAYMENT_MODE)
     objective = models.FloatField()
     start_date = models.DateField()
     end_date = models.DateField()

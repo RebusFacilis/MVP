@@ -24,11 +24,11 @@
   <form role='form' method='POST'>
     {% csrf_token %}
     <h3>¿Cuál es tu meta?</h3>
-    {{ form.monthly_payment }}
+    {{ form.meta }}
     <h3>¿Cuánto quieres invertir al mes?</h3>
-    {{ form.objective }}
+    {{ form.inversion }}
     <h3> ¿En cuánto tiempo? </h3>
-    {{ form.payment_mode | attr:"style: color:#2ecc71;"  }}
+    {{ form.tiempo | attr:"style: color:#2ecc71;"  }}
     <input type="submit" class='animated infinite pulse' value='Calcular' style="color:#2ecc71; ">
 
   </form>
@@ -36,7 +36,6 @@
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
-  <script src="{% static 'js/index.js' %}"></script>
 
 </body>
 

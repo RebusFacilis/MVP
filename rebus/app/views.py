@@ -21,16 +21,21 @@ class Login(View):
             messages.error(request, u'Usuario/Password incorrectos')
             return redirect(reverse('login'))
 
+    def dispatch(self, request, *args, **kwargs):
+    	if request.user.is_authenticated():
+    		return redirect(reverse('user'))
+    	super(Login, self).dispatch(request, *args, **kwargs)
+
 class UserView(View):
     def get(self, request):
-        form = f.InvestmentForm()
-        print form
+        form = f.InvestmentInfoForm()
+        # print form
         return render(request, 'index.html', {'form': form})
 
     def post(self,request):
-        form = f.InvestmentForm(request.POST)
+        form = f.InvestmentInfoForm(request.POST)
         if form.is_valid():
-            form.save(user = request.user)
+            # Procesar datos del usuario para analisis
             return redirect('dashboard-user')
         else:
             return render(request, 'index.html', {'form': form})

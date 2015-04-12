@@ -1,6 +1,18 @@
+# -*- encoding:utf-8 -*-
 from app import models as appModels
 from django import forms
 
+TIEMPO = (
+	(6, '6 meses'),
+	(12, '12 meses'),
+	(18, '18 meses'),
+	(24, '24 meses')
+)
+
+class InvestmentInfoForm(forms.Form):
+	meta = forms.CharField(help_text='¿Cuál es tu meta?')
+	inversion = forms.FloatField()
+	tiempo = forms.ChoiceField(choices=TIEMPO)
 
 class InvestmentForm(forms.ModelForm):
 	def save(self, user=None):
@@ -13,6 +25,6 @@ class InvestmentForm(forms.ModelForm):
 
 class CreditCardForm(forms.ModelForm):
 	class Meta:
-		model = appModels.creditCard
+		model = appModels.CreditCard
 		fields = ['token']
 
