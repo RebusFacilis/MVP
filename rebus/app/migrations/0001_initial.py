@@ -13,12 +13,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='creditCard',
+            name='CreditCard',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('token', models.CharField(max_length=200)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
+
+            options={
+            },
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Invenstment',
@@ -31,5 +35,9 @@ class Migration(migrations.Migration):
                 ('end_date', models.DateField()),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
+
+            options={
+            },
+            bases=(models.Model,),
         ),
     ]
