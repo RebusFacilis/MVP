@@ -1,21 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Rebus Facilis</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">	
-	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
-</head>
-<body>
-	<nav class="top-bar" data-topbar role='navigation'>
-		<ul class="title-area">
-			<li class="name">
-				<h1 style="color:white;">Rebus Facilis</h1>
-			</li>
-		</ul>
-	</nav>
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name='csrftoken' content='{{ csrf_token }}'>
+		<title>Rebus Facilis</title>
+		<link rel="stylesheet" href="{% static 'css/normalize.css' %}">	
+		<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+	</head>
+	<body>
+		<nav class="top-bar" data-topbar role="navigation">
+		  <ul class="title-area">
+		    <li class="name">
+		      <h1><a href="#">Rebus Facilis<h1>
+		  </ul>
+		</nav>
+
+	
 	{% block content %}
 	{% endblock %}
-</body>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+	<script src="{% static 'js/pagos.js' %}"></script>
+	<script src="{% static 'js/foundation.min.js' %}"></script>	
+	<script src="{% static 'js/Chart.js' %}"></script>
+		
+	</body>
 </html>

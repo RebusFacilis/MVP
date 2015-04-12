@@ -8,5 +8,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dashboard/', app_views.dashboard_user, name='dashboard-user')
+    url(r'^dashboard/', app_views.dashboard_user, name='dashboard-user'),
+    url(r'^token/', app_views.token_credit_card, name="token"),
 ]

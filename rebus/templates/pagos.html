@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+	
+	<form id="submit_pagos">
+
+		<div class="row">
+			<div class="large-9 columns">
+				<label>Nombre
+					<input id="name" type="text" placeholder="Roofdier Dz">
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-9 columns">
+				<label>Número de Tarjeta
+					<input id="number" type="text" placeholder="5142339009876754">
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-3 columns">
+				<label>Año Exp
+					<select id="exp_year">
+						<option value="2015">15</option>
+						<option value="2016">16</option>
+						<option value="2017">17</option>
+						<option value="2018">18</option>
+						<option value="2019">19</option>
+						<option value="2020">20</option>
+					</select>
+				</label>
+			</div>
+			<div class="large-3 columns">
+				<label>Mes Exp
+					<select id="exp_month">
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+				</label>
+			</div>
+			<div class="large-3 columns">
+				<label>CVC
+					<input id="cvc" type="text" placeholder="ej. 592">
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-3 columns">
+				<button type="submit">Submit</button>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+{% endblock %}
