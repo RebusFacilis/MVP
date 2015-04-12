@@ -1,5 +1,7 @@
 from scrapy import Spider
 import json
+import os
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def getStartUrls():
     urls = []
@@ -13,15 +15,30 @@ def getStartUrls():
 
     return urls
 
+def reset_files(paths):
+    for path in paths:
+        try:
+            f = open(path, 'w')
+            f.write('')
+            f.close()
+        except:
+            pass
+
 class FinvizSpider(Spider):
     name = 'finviz'
     allowed_domains = ['finviz.com']
+    valuationPath = os.path.join(BASE, 'outputs/valuation.txt')
+    financialPath = os.path.join(BASE, 'outputs/financial.txt')
+    
+
+    usablePath = valuationPath
+    reset_files([usablePath])
     start_urls = getStartUrls()
 
     def parse(self, response):
         indexes = []
         tickers = {}
-        print "<<<>>>", # Separator
+        # print "<<<>>>", # Separator
         tables = response.css('table[bgcolor="#d3d3d3"]')
         for table in tables:
             table = tables[0]
@@ -58,5 +75,8 @@ class FinvizSpider(Spider):
                         index = indexes[column]
                         tickers[ticker][index] = text
         
-        import pprint
-        print(json.dumps(tickers))
+
+        f = open(self.usablePath, 'a')
+        f.write('<<<>>>')
+        f.write(json.dumps(tickers))
+        f.close()
