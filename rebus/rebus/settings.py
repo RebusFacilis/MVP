@@ -9,10 +9,12 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
+from __future__ import absolute_import
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
+from celery.schedules import crontab
+from datetime import timedelta
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'widget_tweaks',
     'app',
+    'conekta',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,3 +101,20 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+#>> Celery celery -A proj worker -l info
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+CELERYBEAT_SCHEDULE = {
+    'cobro-automatico': {
+        'task': 'app.tasks.cobro',
+        'schedule': timedelta(seconds=10),
+        # 'schedule': crontab(hour=7, minute=0, day_of_week=2),
+    },
+    'compra-acciones': {
+        'task': 'app.tasks.compra',
+        'schedule': timedelta(seconds=11),
+        # 'schedule': crontab(hour=7, minute=0, day_of_week=2),
+    },
+}
