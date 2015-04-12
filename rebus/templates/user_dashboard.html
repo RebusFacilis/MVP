@@ -1,52 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
-	<div class="row">
-		<div class="large-4 columns">
-			<div class="panel">
-			  <h5>Saldo a Favor.</h5>
-			  <p>$ 200.00 MXN</p>
-			</div>
-			<div class="panel">
-			  <h5>Saldo Restante.</h5>
-			  <p>122,000.00 MXN</p>
-			</div>
-			<div class="panel">
-			  <h5>Tiempo restante.</h5>
-			  <p>2 meses, 4 dias</p>
-			</div>
-		</div>
-		<div class="large-8 columns">
-			<table>
-			  <thead>
-			    <tr>
-			      <th width="200">Acciones</th>
-			      <th>Inversión</th>
-			      <th width="150">ROI</th>
-			      <th width="150">ESP</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td>Content Goes Here</td>
-			      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-			      <td>Content Goes Here</td>
-			      <td>Content Goes Here</td>
-			    </tr>
-			    <tr>
-			      <td>Content Goes Here</td>
-			      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-			      <td>Content Goes Here</td>
-			      <td>Content Goes Here</td>
-			    </tr>
-			    <tr>
-			      <td>Content Goes Here</td>
-			      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-			      <td>Content Goes Here</td>
-			      <td>Content Goes Here</td>
-			    </tr>
-			  </tbody>
-			</table>
-		</div>
-	</div>
+
+{% load staticfiles %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/a.css' %}">
+
+
+		<div class="custom-bar-chart" style='  width: 70%;
+  margin: 0 auto;
+  margin-top: 3em;'>
+          <ul class="y-axis">
+              <li><span> 24 meses </span></li>
+              <li><span> 20 meses </span></li>
+              <li><span> 16 meses </span></li>
+              <li><span> 12 meses </span></li>
+              <li><span> 4 meses </span></li>
+	          <li><span> 0 meses </span></li>
+
+          </ul>
+
+           <div class="bar ">
+              <div class="title">S/I</div>
+              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: {{sin_inversion}}%;"></div>
+          </div>
+    
+          <div class="bar ">
+              <div class="title">CETES</div>
+              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top" style="height: {{time_cetes}}%;"></div>
+          </div>
+          <div class="bar">
+              <div class="title">REBUS</div>
+              <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top" style="height: {{time_rebus}}%;"></div>
+          </div>
+     </div>
 
 {% endblock %}

@@ -51,7 +51,7 @@ class InvestmentLogic(object):
 	@staticmethod
 	def get_time(goal, monthly_payment, payment_mode):
 	    necessary = goal / monthly_payment
-	    cetes = .00302
+	    cetes = .0302
 	    rebus = .2435
 
 	    if necessary > payment_mode:

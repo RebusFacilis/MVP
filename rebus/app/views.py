@@ -43,8 +43,14 @@ class UserInvestmentView(View):
 
         meta = form.cleaned_data['meta']
         inversion = form.cleaned_data['inversion']
-        tiempo = form.cleaned_data['tiempo']
+        tiempo = form.cleaned_data['tiempo']        
         time_cetes, time_rebus = InvestmentLogic.get_time(meta, inversion, tiempo)
+        print int(time_rebus)
+        print int(time_cetes)
+
+        sin_inversion = int(meta) / int(inversion)
+        pcetes = (int(time_cetes) * 100) / int(sin_inversion)
+        prebus = (int(time_rebus) * 100) / int(sin_inversion)
 
         return render(request, 'user_dashboard.html', {
             'meta': meta,
@@ -52,9 +58,11 @@ class UserInvestmentView(View):
             'tiempo': tiempo,
             'time_cetes': time_cetes,
             'time_rebus': time_rebus,
-            'portfolio': []
+            'portfolio': [],
+            'pcetes': pcetes,
+            'prebus': prebus,
+            'sin_inversion': sin_inversion,
         })
-    
 class UserInvestmentConfirmationView(View):
     def post(self, request):
         form = f.InvestmentInfoForm(request.POST)
