@@ -32,7 +32,7 @@ $(function(){
   successResponseHandler = function(token) {
 
     return $.post('/token/', {token_id:token.id, csrfmiddlewaretoken: csrftoken} , function() {
-      return document.location = 'payment_succeeded';
+      return document.location = '/cards';
     });
   };
 
