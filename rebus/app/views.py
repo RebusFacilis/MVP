@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.base import View
-from app import invesments
-from app.models import Invenstment
+from app import invesments as investments
+from app.models import Investment
 from app import forms as f
 
 class Login(View):
@@ -28,27 +28,29 @@ class Login(View):
     		return redirect(reverse('user'))
     	super(Login, self).dispatch(request, *args, **kwargs)
 
-class UserView(View):
+class UserInvestmentView(View):
     def get(self, request):
         form = f.InvestmentInfoForm()
-        # print form
         return render(request, 'index.html', {'form': form})
 
-    def post(self,request):
+    def post(self, request):
         form = f.InvestmentInfoForm(request.POST)
-        # if form.is_valid():
-        #     form.save()
-        user = Invenstment.objects.get(user=request.user)
-        objective = user.objective
-        monthly_pay = user.monthly_payment
-        payment_mode = user.payment_mode
+        if not form.is_valid():
+            return render(request, 'index.html', {'form': form})
 
-        time = invenstments.get_time(objective,monthly_payment,payment_mode)
-        
-        if time is None:
-            return redirect(reverse('user'))
+        meta = form.cleaned_data['meta']
+        inversion = form.cleaned_data['inversion']
+        tiempo = form.cleaned_data['tiempo']
+        time_cetes, time_rebus = investments.get_time(meta, inversion, tiempo)
 
-        return render(request, 'dashboard_user.html', {'time':time})
+        return render(request, 'user_dashboard.html', {
+            'meta': meta,
+            'inversion': inversion,
+            'tiempo': tiempo,
+            'time_cetes': time_cetes,
+            'time_rebus': time_rebus,
+            'portfolio': []
+        })
     
 
 def dashboard_user(request):

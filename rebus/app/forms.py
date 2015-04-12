@@ -10,7 +10,7 @@ TIEMPO = (
 )
 
 class InvestmentInfoForm(forms.Form):
-	meta = forms.CharField(help_text='¿Cuál es tu meta?')
+	meta = forms.FloatField(help_text='¿Cuál es tu meta?')
 	inversion = forms.FloatField()
 	tiempo = forms.ChoiceField(choices=TIEMPO)
 
@@ -20,8 +20,8 @@ class InvestmentForm(forms.ModelForm):
 		super(InvestmentForm, self).save()
 
 	class Meta:
-		model = appModels.Invenstment
-		fields = ['monthly_payment', 'objective', 'payment_mode']
+		model = appModels.Investment
+		fields = ['monthly_payment', 'goal', 'payment_mode']
 
 class CreditCardForm(forms.ModelForm):
 	class Meta:
