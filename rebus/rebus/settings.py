@@ -51,15 +51,17 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'rebus.urls'
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> bf1559af963a083b3b4d623abc5ed6c4a9bd49eb
 WSGI_APPLICATION = 'rebus.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases

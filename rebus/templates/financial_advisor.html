@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block content %}
+	<div class="row">
+		<h2>Plan Financiero.</h2>
+			<a href="#" class="button radius success">Invierte con nosotros</a>
+			<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+	<script type="text/javascript">
+			var data = {
+		    labels: ["CETES", "REBUS"],
+		    datasets: [
+		        {
+		            label: "My First dataset",
+		            fillColor: "rgba(220,220,220,0.5)",
+		            strokeColor: "rgba(220,220,220,0.8)",
+		            highlightFill: "rgba(220,220,220,0.75)",
+		            highlightStroke: "rgba(220,220,220,1)",
+		            data: [65, 29]
+		        },
+		    ]
+		};
+			var ctx = document.getElementById("myChart").getContext("2d");
+			var myBarChart = new Chart(ctx).Bar(data, {responsive:true});;
+		</script>
+{% endblock %}
